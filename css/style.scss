@@ -1,0 +1,348 @@
+$fontColor: #555;
+$black: #555;
+$green: #94D0bf;
+$red: #F6BBA6;
+$blue: #C6D4EC;
+$gray: #aaaaaa;
+$purple: #E4C1DB;
+$white: #fffded;
+$pink: #F4B2BA;
+$contetsSize: 550px;
+
+
+$pc : "min-width: 550px";
+$sp : "max-width: 549px";
+
+div {
+    display: inline-block;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    //background: url(../image/background.jpg);
+    background-color: $white;
+    background-size: cover;
+    color: $black;
+}
+
+#app {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+header {
+    position: relative;
+    //background-color: rgba(229, 194, 219, 1);
+    //background: linear-gradient(rgba(246, 187, 167, 0.8), 70%, rgba(246, 187, 167, 0.05));
+    background-color: $pink;
+    margin-bottom: 32px;
+    @media (#{$sp}) {
+        margin-bottom: 16px;
+    }
+    width: 100%;
+    height: 120px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-wrap: wrap;
+    h1 {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        color: $black;
+        margin: 24px 0 16px 0;
+    }
+
+    .menu {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+        P {
+            display: inline-block;
+            margin: 0 32px 0 32px;
+        }
+    }
+
+    .stitch {
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        display: inline-block;
+        width: 98%;
+        height: 136px;
+        border: 2px dashed $white;
+        border-bottom: none;
+
+        @media (#{$sp}) {
+            width: 95%;
+        }
+    }
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    top: 120px;
+    left: 0;
+    width: 100%;
+    height: 16px;
+    background: linear-gradient(135deg, $pink 50%, rgba(0, 0, 0, 0) 50%),
+                linear-gradient(225deg, $pink 50%, rgba(0, 0, 0, 0) 50%);
+    background-size: 16px 16px;
+}
+
+.todo-form {
+    margin-top: 32px;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.is-selected {
+    color: $white;
+}
+
+section {
+    display: inline-block;  
+    @media (#{$pc}) {
+        width: $contetsSize;
+    }
+}
+
+.main-wrap {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    text-align: center;
+    @media (#{$sp}) {
+       position: fixed;
+       bottom: 16px; 
+       left: 16px;
+       width: 100%;
+    }
+}
+
+.input-text{
+	position: relative;
+    width: 400px;
+    height: 32px;
+    display: inline-block;
+    margin: 0;
+
+    @media (#{$sp}) {
+        width: 60%;
+     }
+}
+.input-text input[type='text'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+    letter-spacing: 1px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.input-text input[type='text']:focus {
+	outline: none;
+}
+.ef {
+    padding: 4px 0;
+    height: 100%;
+	border: 0;
+	border-bottom: 1px solid $black;
+    background-color: transparent;
+}
+.ef ~ .focus_line {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 2px;
+	transition: 0.4s;
+    background-color: $pink;
+    z-index: 10;
+}
+.ef:focus ~ .focus_line,
+.input-text.ef ~ .focus_line {
+    left: 0;
+	width: 100%;
+	transition: 0.4s;
+}
+.ef ~ label {
+	position: absolute;
+	z-index: -1;
+	top: 4px;
+	left: 0;
+	width: 100%;
+	transition: 0.3s;
+	letter-spacing: 0.5px;
+	color: $gray;
+}
+.ef:focus ~ label, .input-text.ef ~ label {
+	font-size: 12px;
+	top: -16px;
+	transition: 0.3s;
+	color: $pink;
+}
+
+.button-area {
+    @media (#{$sp}) {
+        margin-right: 16px;
+    }
+}
+
+.button-wrap {
+    display: inline-block;
+    width: 140px;
+    text-align: center;
+    @media (#{$sp}) {
+        width: 56px;
+    }
+}
+
+button {
+	display: inline-block;
+    width: 120px;
+    height: 32px;
+	line-height: 1.4;
+	cursor: pointer;
+	user-select: none;
+	transition: background-color 0.2s, color 0.2s, width 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-radius 0.2s;
+	color: $pink;
+	border: 1px solid $pink;
+	border-radius: 0.2em;
+    background: transparent;
+    
+    @media (#{$sp}) {
+        width: 56px;
+        font-size: 8px;
+     }
+}
+button:hover {
+	width: 140px;
+	color: #ffffff;
+	border-radius: 0.5em;
+	border: 1px solid $pink;
+    background-color: $pink;
+    @media (#{$sp}) {
+        width: 80px;
+     }
+}
+button:active {
+	border-color: $pink;
+	background-color: $pink;
+}
+button:focus {
+	color: $pink;
+	border: 1px solid $pink;
+}
+button:focus:hover {
+	color: #ffffff;
+}
+
+.list-area {
+    text-align: center;
+    width: 100%;
+    .area-incomplete, .area-complete {
+        width: 100%;
+    }
+}
+
+.list-label {
+    display: inline-block;
+    width: 200px;
+    text-align: left;
+    @media (#{$sp}) {
+        width: 50%;
+        margin-left: 16px;
+    }
+}
+
+.todo-area {
+    list-style: none;
+    padding: 0;
+    display: inline-block;
+    width: $contetsSize;
+    @media (#{$sp}) {
+        width: 100%;
+        margin: 0;
+    }
+
+    .list {
+        display: flex;
+        margin: 16px 0 16px 0;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.add-wrap {
+    @media (#{$sp}) {
+        width: 80px;
+        margin-right: 32px;   
+    }
+    
+}
+.button-add {
+    @media (#{$sp}) {
+        width: 80px;   
+    }
+}
+/* button: Done */
+.button-done {
+    color: $green;
+	border-color: $green;
+}
+.button-done:hover {
+	border-color: $green;
+	background-color: $green;
+}
+.button-done:active {
+	border-color: $green;
+	background-color: $green;
+}
+.button-done:focus {
+	color: $green;
+	border-color: $green;
+}
+/* button: Delete */
+.button-delete {
+    color: $red;
+	border-color: $red;
+}
+.button-delete:hover {
+	border-color: $red;
+	background-color: $red;
+}
+.button-delete:active {
+	border-color: $red;
+	background-color: $red;
+}
+.button-delete:focus {
+	color: $red;
+	border-color: $red;
+}
+/* button: Return */
+.button-return {
+    color: $gray;
+	border-color: $gray;
+}
+.button-return:hover {
+	border-color: $gray;
+	background-color: $gray;
+}
+.button-return:active {
+	border-color: $gray;
+	background-color: $gray;
+}
+.button-return:focus {
+	color: $gray;
+	border-color: $gray;
+}
+

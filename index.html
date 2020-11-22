@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODOアプリ</title>
+    <link
+      href="https://unpkg.com/sanitize.css"
+      rel="stylesheet"
+    />
+    <link
+      href="./css/style.css"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <div id="app">
+        <header>
+            <span class="stitch"></span>
+            <h1>TODO!</h1>
+            <div class="menu">
+                <p :class="{'is-selected': isSelectedPage[0]}" @click="goToIncompreted">incomplete</p>
+                <p :class="{'is-selected': isSelectedPage[1]}" @click="goTocompreted">complete</p>
+            </div>
+        </header>
+        <!--section class="todo-form">
+            <div class="main-wrap">
+                <div class="input-text">
+                    <input
+                    type="text"
+                    name="todo-text"
+                    class="ef"
+                    :value="text"
+                    @input="inputText"
+                    />
+                    <label>please input todo</label>
+                    <span class="focus_line"></span>
+                </div>
+                <div class=button-wrap>
+                    <button 
+                    class="add-button"
+                    @click="addTodo"
+                    >ADD TODO</button>
+                </div>
+            </div>
+        </section-->
+        <carousel
+          ref="carousel"
+          :per-page="1"
+          :pagination-enabled="false"
+          @page-change="onPageChange"
+        >
+            <slide>
+                <article class="wrap">
+                    <!--section class="todo-form">
+                        <input
+                        type="text"
+                        name="todo-text"
+                        class="input-text"
+                        placeholder="please input todo"
+                        :value="text"
+                        @input="inputText"
+                        />
+                        <button 
+                        class="add-button"
+                        @click="addTodo"
+                        >ADD TODO</button>
+                    </section-->
+
+                    <section class="list-area">
+                        <div class="area-incomplete">
+                            <p class="todo-title"></p>
+                            <ul class="todo-area">
+                                <li
+                                v-for="(item, i) in incompletedTodo"
+                                :key="i"
+                                class="list"
+                                >
+                                <span class="list-label">{{item.text}}</span>
+                                <span class="button-area">
+                                    <div class="button-wrap">
+                                        <button
+                                        class="list-button button-done"
+                                        @click="toggleIsDone(item.id)"
+                                        >DONE</button>
+                                    </div>
+                                    <div class=button-wrap>
+                                        <button
+                                        class="list-button button-delete"
+                                        @click="deleteTodo(item.id)"
+                                        >DELETE</button>
+                                    </div>
+                                </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </article>
+            </slide>
+            <slide>
+                <!--section class="todo-form">
+                    <input
+                    type="text"
+                    name="todo-text"
+                    class="input-text"
+                    placeholder="please input todo"
+                    :value="text"
+                    @input="inputText"
+                    />
+                    <button 
+                    class="add-button"
+                    @click="addTodo"
+                    >ADD TODO</button>
+                </section-->
+                <section class="list-area">
+                    <div class="area-complete">
+                        <p class="todo-title"></p>
+                        <ul class="todo-area">
+                            <li
+                            v-for="(item, i) in doneTodo"
+                            :key="i"
+                            class="list"
+                            >
+                            <span class="list-label">{{item.text}}</span>
+                            <span class="button-area">
+                                <div class=button-wrap>
+                                    <button
+                                    class="list-button button-return"
+                                    @click="toggleIsDone(item.id)"
+                                    >RETURN</button>
+                                </div>
+                                <div class=button-wrap>
+                                    <button
+                                    class="list-button button-delete"
+                                    @click="deleteTodo(item.id)"
+                                    >DELETE</button>
+                                </div>
+                            </span>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </slide>
+        </carousel>
+
+        <section class="todo-form">
+            <div class="main-wrap">
+                <div class="input-text">
+                    <input
+                    type="text"
+                    name="todo-text"
+                    class="ef"
+                    :value="text"
+                    @input="inputText"
+                    />
+                    <label>please input todo</label>
+                    <span class="focus_line"></span>
+                </div>
+                <div class="button-wrap add-wrap">
+                    <button 
+                    class="button-add"
+                    @click="addTodo"
+                    >ADD TODO</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-carousel@0.18.0/dist/vue-carousel.min.js"></script>
+    <script src="./script/script.js"></script>
+    
+</body>
+</html>
