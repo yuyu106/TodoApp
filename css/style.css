@@ -191,7 +191,7 @@ button:hover {
   background-color: #F4B2BA; }
   @media (max-width: 549px) {
     button:hover {
-      width: 80px; } }
+      width: 56px; } }
 
 button:active {
   border-color: #F4B2BA;
@@ -241,7 +241,9 @@ button:focus:hover {
 
 @media (max-width: 549px) {
   .button-add {
-    width: 80px; } }
+    width: 80px; }
+    .button-add:hover {
+      width: 80px; } }
 
 /* button: Done */
 .button-done {

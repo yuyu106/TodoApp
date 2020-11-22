@@ -231,8 +231,8 @@ button:hover {
 	border: 1px solid $pink;
     background-color: $pink;
     @media (#{$sp}) {
-        width: 80px;
-     }
+        width: 56px;
+    }
 }
 button:active {
 	border-color: $pink;
@@ -292,7 +292,11 @@ button:focus:hover {
 .button-add {
     @media (#{$sp}) {
         width: 80px;   
+        &:hover {
+            width: 80px;
+        }
     }
+    
 }
 /* button: Done */
 .button-done {
