@@ -8,10 +8,16 @@ $purple: #E4C1DB;
 $white: #fffded;
 $pink: #F4B2BA;
 $contetsSize: 550px;
-
+$yellow: #ffe567;
 
 $pc : "min-width: 550px";
 $sp : "max-width: 549px";
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&display=swap');
+
+*:focus {
+    outline: none;
+}
 
 div {
     display: inline-block;
@@ -34,6 +40,7 @@ body {
 }
 header {
     position: relative;
+    font-family: 'Josefin Sans', sans-serif;
     //background-color: rgba(229, 194, 219, 1);
     //background: linear-gradient(rgba(246, 187, 167, 0.8), 70%, rgba(246, 187, 167, 0.05));
     background-color: $pink;
@@ -53,6 +60,7 @@ header {
         text-align: center;
         color: $black;
         margin: 24px 0 16px 0;
+        letter-spacing: 2px;
     }
 
     .menu {
@@ -61,9 +69,18 @@ header {
         align-items: center;
         justify-content: center;
         z-index: 100;
+        position: relative;
+        //color: $white;
         P {
+            font-size: 24px;
+            position: relative;
             display: inline-block;
             margin: 0 32px 0 32px;
+            z-index: 100;
+
+            @media (#{$sp}) {
+                font-size: 18px;
+            }
         }
     }
 
@@ -107,6 +124,30 @@ p {
 
 .is-selected {
     color: $white;
+    //border: 2px dashed $white;
+    &:before, &:after {
+        position: absolute;
+        content: "";
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        mix-blend-mode: soft-light;
+        z-index: -1;
+    }
+    &:before {
+        background-color: $purple;
+        border-radius: 50% 50% 50% 70%/50% 50% 70% 60%;
+        left: 36%;
+        top: 2px;
+    }
+    &:after {
+        border-radius: 80% 30% 50% 50%/50%;
+        background-color: $red;
+
+        right: 36%;
+        bottom: 2px;
+    }
+    
 }
 
 section {
@@ -207,6 +248,8 @@ section {
 }
 
 button {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
 	display: inline-block;
     width: 120px;
     height: 32px;
@@ -221,7 +264,9 @@ button {
     
     @media (#{$sp}) {
         width: 56px;
-        font-size: 8px;
+        font-size: 12px;
+        letter-spacing: -0.8px;
+        padding: 0 4px 0 4px;
      }
 }
 button:hover {

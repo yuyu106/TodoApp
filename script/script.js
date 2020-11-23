@@ -11,7 +11,13 @@ new Vue({
     },
     methods: {
         inputText(e) {
-            this.text = e.target.value;
+            this.text = e.target.value; 
+        },
+        onKeydownEnter(e) {
+            if(e.keyCode !== 13) {
+                return;
+            }
+            this.addTodo();
         },
         addTodo() {
             if (!this.text) {
@@ -26,6 +32,7 @@ new Vue({
             };
             this.todos.push(todo);
             this.resetText();
+            this.saveTodo(); //ブラウザに保存
         },
         resetText() {
             this.text = '';
@@ -33,10 +40,12 @@ new Vue({
         deleteTodo(id) {
             const index=this.getIndexBy(id);
             this.todos.splice(index, 1);
+            this.saveTodo(); //ブラウザに保存
         },
         toggleIsDone(id) {
             const index=this.getIndexBy(id);
             this.todos[index].isDone = ! this.todos[index].isDone;
+            this.saveTodo(); //ブラウザに保存
         },
         getIndexBy(id) {
             const filteredTodo = this.todos.filter(todo => todo.id === id)[0];
@@ -59,8 +68,19 @@ new Vue({
             this.isSelectedPage.forEach((value, index) => {this.isSelectedPage.splice(index, 1, false)});
             this.isSelectedPage.splice(page, 1, true);
         },
-
-
+        /* データをブラウザに保存 */
+        saveTodo: function(){
+            localStorage.setItem('todos', JSON.stringify(this.todos));
+        },
+        loadTodo() {
+            this.todos = JSON.parse( localStorage.getItem('todos') );
+            if( !this.todos ){
+              this.todos = [];
+            }
+        }
+    },
+    mounted: function(){
+        this.loadTodo();
     },
     computed: {
         doneTodo() {

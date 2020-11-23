@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&display=swap");
+*:focus {
+  outline: none; }
+
 div {
   display: inline-block; }
 
@@ -16,6 +20,7 @@ body {
 
 header {
   position: relative;
+  font-family: 'Josefin Sans', sans-serif;
   background-color: #F4B2BA;
   margin-bottom: 32px;
   width: 100%;
@@ -32,16 +37,24 @@ header {
     width: 100%;
     text-align: center;
     color: #555;
-    margin: 24px 0 16px 0; }
+    margin: 24px 0 16px 0;
+    letter-spacing: 2px; }
   header .menu {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: center;
-    z-index: 100; }
+    z-index: 100;
+    position: relative; }
     header .menu P {
+      font-size: 24px;
+      position: relative;
       display: inline-block;
-      margin: 0 32px 0 32px; }
+      margin: 0 32px 0 32px;
+      z-index: 100; }
+      @media (max-width: 549px) {
+        header .menu P {
+          font-size: 18px; } }
   header .stitch {
     position: absolute;
     top: 8px;
@@ -75,6 +88,24 @@ p {
 
 .is-selected {
   color: #fffded; }
+  .is-selected:before, .is-selected:after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    mix-blend-mode: soft-light;
+    z-index: -1; }
+  .is-selected:before {
+    background-color: #E4C1DB;
+    border-radius: 50% 50% 50% 70%/50% 50% 70% 60%;
+    left: 36%;
+    top: 2px; }
+  .is-selected:after {
+    border-radius: 80% 30% 50% 50%/50%;
+    background-color: #F6BBA6;
+    right: 36%;
+    bottom: 2px; }
 
 section {
   display: inline-block; }
@@ -167,6 +198,8 @@ section {
       width: 56px; } }
 
 button {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 16px;
   display: inline-block;
   width: 120px;
   height: 32px;
@@ -181,7 +214,9 @@ button {
   @media (max-width: 549px) {
     button {
       width: 56px;
-      font-size: 8px; } }
+      font-size: 12px;
+      letter-spacing: -0.8px;
+      padding: 0 4px 0 4px; } }
 
 button:hover {
   width: 140px;
