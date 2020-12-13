@@ -14,6 +14,7 @@ $pc : "min-width: 550px";
 $sp : "max-width: 549px";
 
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400&display=swap');
 
 *:focus {
     outline: none;
@@ -30,6 +31,10 @@ body {
     background-color: $white;
     background-size: cover;
     color: $black;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    @media (#{$sp}) {
+        font-weight: 300;
+    }
 }
 
 #app {
@@ -61,6 +66,9 @@ header {
         color: $black;
         margin: 24px 0 16px 0;
         letter-spacing: 2px;
+        span {
+            margin-left: 4px;
+        }
     }
 
     .menu {
@@ -77,9 +85,11 @@ header {
             display: inline-block;
             margin: 0 32px 0 32px;
             z-index: 100;
+            width: 120px;
 
             @media (#{$sp}) {
                 font-size: 18px;
+                width: 96px;
             }
         }
     }
@@ -139,6 +149,10 @@ p {
         border-radius: 50% 50% 50% 70%/50% 50% 70% 60%;
         left: 36%;
         top: 2px;
+        @media (#{$sp}) {
+            left: 34%;
+            bottom: 6px;
+        }
     }
     &:after {
         border-radius: 80% 30% 50% 50%/50%;
@@ -146,6 +160,10 @@ p {
 
         right: 36%;
         bottom: 2px;
+        @media (#{$sp}) {
+            right: 34%;
+            top: 6px;
+        }
     }
     
 }
@@ -176,6 +194,7 @@ section {
     height: 32px;
     display: inline-block;
     margin: 0;
+    font-family: 'Josefin Sans', sans-serif;
 
     @media (#{$sp}) {
         width: 60%;
